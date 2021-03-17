@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
     port: 3306,
     user: "root",
     // make sure to change password to whatever your pw is on mySQL
-    password: "",
+    password: "forgetmenot",
     database: "employee_trackerDB"
 });
 
@@ -167,10 +167,10 @@ function addDepartment(){
 };
 
 function viewAllEmployees(){
-    connection.query("SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name, CONCAT(e.first_name, ' ', e.last_name) AS manager FROM employee INNER JOIN role ON role.id = employee.role_id INNER JOIN department ON department.id = role.department_id LEFT JOIN employee ON employee.manager_id = e.id;"),
+    connection.query("SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name, CONCAT(e.first_name, ' ', e.last_name) AS manager FROM employee INNER JOIN role ON role.id = employee.role_id INNER JOIN department ON department.id = role.department_id LEFT JOIN employee e ON employee.manager_id = e.id;",
     (err,res)=>{
         if (err) throw err;
         console.table(res);
         runPrompt();
-    }
+    })
 };

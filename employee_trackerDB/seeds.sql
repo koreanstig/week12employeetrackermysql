@@ -20,13 +20,13 @@ VALUE ("Counter", 40000, 4);
 
 -- EMPLOYEE SEEDS -- 
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("David", "Lee", null, 1);
+VALUE ("David", "Lee", 1, 1);
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Brandon", "LeMaster", null, 2);
+VALUE ("Brandon", "LeMaster", 2, 2);
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Mookie", "Dedic", 1, 3);
+VALUE ("Mookie", "Dedic", null, 3);
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("John", "Doe", 2, 4);
+VALUE ("John", "Doe", 3, 4);
 
 -- Select tables --
 SELECT * FROM department;
