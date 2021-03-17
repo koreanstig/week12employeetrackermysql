@@ -86,3 +86,42 @@ function selectManager(){
     })
     return manArr;
 };
+
+// add employee
+function addEmployee(){
+    inquirer.prompt([{
+        name: "firstName",
+        type: "input",
+        messsage: "Employee's first name?"
+    },
+    {
+        name: "lastName",
+        type: "input",
+        message: "Employee's last name?"
+    },
+    {
+        name: 'role',
+        type: 'list',
+        message: "Employee's role?",
+        choices: selectRole()
+    },
+    {
+        name: 'choice',
+        type: 'rawlist',
+        message: "Manager's name?",
+        choices: selectManager()
+    }]).then((answer)=>{
+        const roleId = selectRole().indexOf(answer.role) + 1;
+        const managerId = selectManager().indexOf(answer.choice) + 1;
+        connection.query("INSERT INTO employee SET ?", {
+            first_name: answer.firstName,
+            last_name: answer.lastName,
+            role_id: roleId,
+            manager_id: managerId
+        }, (err)=>{
+            if (err) throw (err);
+            console.table(answer);
+            runPrompt();
+        });
+    });
+};
