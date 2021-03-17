@@ -34,5 +34,31 @@ function runPrompt(){
             "View all employees by Dept",
             "Update Employee"
         ]
-    }])
+    }]).then((answer)=>{
+        switch (answer.choice) {
+            case 'Add Employee':
+                addEmployee();
+                break;
+            case 'Add Role':
+                addRole();
+                break;
+            case 'Add Department':
+                addDepartment();
+                break;
+            case 'View all employees':
+                viewAllEmployees();
+                break;
+            case 'View all employees by Roles':
+                viewEmpByRoles();
+                break;
+            case 'View all employees by Dept':
+                viewEmpByDept();
+                break;
+            case 'Update Employee':
+                updateEmployee();
+                break;
+            default:
+                break;
+        }
+    });
 };
