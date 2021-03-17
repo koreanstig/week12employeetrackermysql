@@ -1,0 +1,25 @@
+{
+  "name": "week12employeetrackermysql",
+  "description": "<h1>week12employeetrackermysql</h1>",
+  "version": "1.0.0",
+  "main": "employeeTracker.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.0.3",
+    "mysql": "^2.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koreanstig/week12employeetrackermysql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koreanstig/week12employeetrackermysql/issues"
+  },
+  "homepage": "https://github.com/koreanstig/week12employeetrackermysql#readme"
+}

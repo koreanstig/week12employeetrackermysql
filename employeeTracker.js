@@ -200,14 +200,14 @@ function updateEmployee(){
         inquirer.prompt([{
             name: "lastName",
             type: 'rawlist',
+            message: "Employee's last name?",
             choices: ()=>{
                 const lastName = [];
                 for (i=0;i<res.length;i++){
                     lastName.push(res[i].last_name);
                 }
                 return lastName;
-            },
-            message: "Employee's last name?",
+            }
         },
         {
             name: 'role',
