@@ -11,7 +11,10 @@
 Using node, inquirer, and MySQL I will be building a solution for managing a company's employees 
 
 ## Installation
-In the command line "npm install"
+* In the command line run "npm install"
+* In mySQL make sure to have the schema's and seeds set up and run that
+* Change password entry in employeeTracker.js to whatever your pw is for mySQL
+* Go back to the command line and "node employeeTracker.js"
 
 
 ## Usage
