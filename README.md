@@ -2,10 +2,14 @@
     
 ## Table of Contents
 - [Description](#description)
+- [Video](#video)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
 - [Questions](#questions)
+
+## Video
+https://drive.google.com/file/d/1PpW1mNO23KKsQ5sFKJrELWeXsY4cNtuN/view
 
 ## Description
 Using node, inquirer, and MySQL I will be building a solution for managing a company's employees 
