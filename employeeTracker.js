@@ -192,3 +192,40 @@ function viewEmpByDept(){
         runPrompt();
     })
 };
+
+function updateEmployee(){
+    connection.query("SELECT employee.last_name, role.title FROM employee JOIN role ON employee.role_id = role.id;", 
+    (err,res)=>{
+        if (err) throw err;
+        inquirer.prompt([{
+            name: "lastName",
+            type: 'rawlist',
+            choices: ()=>{
+                const lastName = [];
+                for (i=0;i<res.length;i++){
+                    lastName.push(res[i].last_name);
+                }
+                return lastName;
+            },
+            message: "Employee's last name?",
+        },
+        {
+            name: 'role',
+            type: 'rawlist',
+            message: "Employee's title?",
+            choices: selectRole()
+        }]).then((answer)=>{
+            const roleId = selectRole().indexOf(answer.role) + 1;
+            connection.query("UPDATE employee SET WHERE ?", {
+                last_name: answer.lastName
+            },
+            {
+                role_id: roleId
+            }, (err)=>{
+                if (err) throw err;
+                console.table(answer);
+                runPrompt();
+            })
+        })
+    })
+};
