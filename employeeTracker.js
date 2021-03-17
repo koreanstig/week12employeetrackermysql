@@ -125,3 +125,27 @@ function addEmployee(){
         });
     });
 };
+
+function addRole(){
+    connection.query("SELECT role.title AS title, role.salary AS salary FROM role", (err,res)=>{
+        inquirer.prompt([{
+            name: "title",
+            type: 'input',
+            message: "What is the role's title?"
+        },
+        {
+            name: 'salary',
+            type: 'input',
+            message: "What is the role's salary?"
+        }]).then((res)=>{
+            connection.query("INSERT INTO role SET ?", {
+                title: res.title,
+                salary: res.salary
+            }, (err)=>{
+                if (err) throw err;
+                console.table(res);
+                runPrompt();
+            })
+        })
+    })
+};
