@@ -62,3 +62,15 @@ function runPrompt(){
         }
     });
 };
+
+// before adding employee, we need to query for role
+const roleArr = [];
+function selectRole(){
+    connection.query("SELECT * FROM role", (err,res)=>{
+        if (err) throw err;
+        for (i=0;i<res.length;i++){
+            roleArr.push(res[i].title);
+        }
+    })
+    return roleArr;
+};
