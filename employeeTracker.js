@@ -74,3 +74,15 @@ function selectRole(){
     })
     return roleArr;
 };
+
+// need to do the same for manager
+const manArr = [];
+function selectManager(){
+    connection.query("SELECT first_name, last_name FROM employee WHERE manager_id IS NULL", (err,res)=>{
+        if (err) throw (err);
+        for (i=0;i<res.length;i++){
+            manArr.push(res[i].first_name);
+        }
+    })
+    return manArr;
+};
