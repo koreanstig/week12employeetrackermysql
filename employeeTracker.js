@@ -18,3 +18,21 @@ connection.connect((err)=>{
     if (err) throw err;
     runPrompt();
 });
+
+// create initial prompt
+function runPrompt(){
+    inquirer.prompt([{
+        type: "list",
+        message: "What would you like to do?",
+        name: "choice",
+        choices: [
+            "Add Employee",
+            "Add Role",
+            "Add Department",
+            "View all employees",
+            "View all employees by Roles",
+            "View all employees by Dept",
+            "Update Employee"
+        ]
+    }])
+};
