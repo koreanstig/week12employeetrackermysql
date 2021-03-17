@@ -12,3 +12,9 @@ const connection = mysql.createConnection({
     password: "",
     database: "employee_trackerDB"
 });
+
+// start connection
+connection.connect((err)=>{
+    if (err) throw err;
+    runPrompt();
+});
